@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get 'user/index'
+  root 'pages#index'
+  resources :products, only: [:index, :show, :create, :update]
+  devise_for :users
 
-  get 'user/create'
-
-  root to: 'user#index'
-
+  resources :users, only:[:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

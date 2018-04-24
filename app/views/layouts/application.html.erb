@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
   <head>
-    <title>LightBid</title>
+    <title>Trackazon</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-  <div class="container">
+  <body ng-app="app">
+    <%= render 'layouts/header' %>
 
-    Hello 
-    <%= yield %>
-  </div>
+    <div class="content container">
+      <%= yield %>
+    </div>
+
+    <%= render 'layouts/footer' %>
   </body>
 </html>

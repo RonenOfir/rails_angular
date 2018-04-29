@@ -1,0 +1,49 @@
+
+<div class="row col-md-6">
+  <div class="card card-outline-secondary">
+    <div class="card-block">
+      <p>Add a Customer Form:</p>
+      <form name="newCustomerForm" novalidate ng-submit="newCustomerForm.$valid && customerCtrl.addNewCustomer()">
+        <div class="form-group row">
+          <label for="name" class="col-xs-3 col-form-label">Name</label>
+          <div class="col-xs-8 offset-xs-1">
+            <input type="text"
+                   name="name"
+                   class="form-control"
+                   placeholder="Customer Name"
+                   id="name"
+                   ng-model="customerCtrl.name"
+                   ng-minlength="5"
+                   required />
+
+            <div ng-messages="newCustomerForm.name.$error" ng-if="newCustomerForm.name.$touched" style="color:maroon" role="alert">
+              <div ng-message="required">Customer name is required.</div>
+              <div ng-message="minlength">Must be more than 5 characters.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="email" class="col-xs-3 col-form-label">Email</label>
+          <div class="col-xs-8 offset-xs-1">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Email"
+                   id="email"
+                   name="email"
+                   ng-model="customerCtrl.email"
+                   required
+                   ng-pattern="/^\d{0,9}(\.\d{1,9})?$/">
+
+             <div ng-messages="newCustomerForm.email.$error" ng-if="newCustomerForm.email.$touched" style="color:maroon" role="alert">
+               <div ng-message="required">Email is required.</div>
+               <div ng-message="pattern">That's not a valid number.</div>
+             </div>
+          </div>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Add Customer">
+      </form>
+    </div>
+  </div>
+</div>

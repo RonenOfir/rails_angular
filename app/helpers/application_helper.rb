@@ -9,6 +9,9 @@ module ApplicationHelper
           <a class="nav-link" ui-sref="about">About</a>
         </li>
         <li class="nav-item">
+        <a class="nav-link" ui-sref="customer">Customers</a>
+      </li>
+        <li class="nav-item">
           <a class="nav-link" ui-sref="contact">Contact</a>
         </li>
       HTML

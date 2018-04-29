@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305031538) do
+ActiveRecord::Schema.define(version: 20180425150124) do
+
+  create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "name"
+    t.string   "email",      limit: 50
+    t.string   "phone",      limit: 20
+    t.integer  "user_id"
+    t.boolean  "status"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.index ["name"], name: "index_customers_on_name", using: :btree
+    t.index ["user_id"], name: "index_customers_on_user_id", using: :btree
+  end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
@@ -38,4 +50,5 @@ ActiveRecord::Schema.define(version: 20180305031538) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "customers", "users"
 end

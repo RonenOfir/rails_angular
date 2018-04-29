@@ -1,0 +1,21 @@
+<div class="card card-outline-secondary">
+  <div class="card-block">
+    <table class="table table-sm">
+      <thead>
+        <tr class="bg-primary">
+          <th>Customer Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody ng-if="customerCtrl.customers.length > 0">
+        <tr product-row ng-repeat="cust in customerCtrl.customers" ng-class="rowClass(cust)"
+                     id="{{ cust.id }}"
+                     item-id="cust.id"
+                     name="cust.name"
+                     email="cust.email">
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -12,6 +12,16 @@ angular
             }
           }
         })
+        .state('customer', {
+          url: '/customer',
+          templateUrl: 'customers/index.html',
+          controller: 'CustomerController as customerCtrl',
+          resolve: {
+            customer: function(CustomerService) {
+              return CustomerService.getCustomers();
+            }
+          }
+        })
         .state('new', {
           url: '/new',
           templateUrl: 'products/new.html',
